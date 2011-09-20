@@ -55,4 +55,13 @@
     return repr;
 }
 
+- (id)JSONValueWithoutNulls {
+    SBJsonParser *parser = [[[SBJsonParser alloc] init] autorelease];
+    parser.skipNulls = YES;
+    id repr = [parser objectWithString:self];
+    if (!repr)
+        NSLog(@"-JSONValue failed. Error is: %@", parser.error);
+    return repr;
+}
+
 @end

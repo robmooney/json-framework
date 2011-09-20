@@ -89,12 +89,26 @@
 	
 	switch (currentType) {
 		case SBJsonStreamParserAdapterArray:
-			[array addObject:obj];
+            if (parser.skipNulls) {
+                if (![obj isKindOfClass:[NSNull class]]) {                      
+                    [array addObject:obj];
+                }
+            } else {                    
+                [array addObject:obj];
+            }
 			break;
 
 		case SBJsonStreamParserAdapterObject:
 			NSParameterAssert(keyStack.count);
-			[dict setObject:obj forKey:[keyStack lastObject]];
+            
+            if (parser.skipNulls) {
+                if (![obj isKindOfClass:[NSNull class]]) {                    
+                    [dict setObject:obj forKey:[keyStack lastObject]];
+                }
+            } else {
+                [dict setObject:obj forKey:[keyStack lastObject]];
+            }
+            
 			[keyStack removeLastObject];
 			break;
 			

@@ -50,6 +50,13 @@
 @property NSUInteger maxDepth;
 
 /**
+ @brief Skip null values when parsing.
+ 
+ Defaults to NO. Setting this to YES will result in null values being ignored when parsing. 
+ */
+@property BOOL skipNulls;
+
+/**
  @brief Description of parse error
 
  This method returns the trace of the last method that failed.

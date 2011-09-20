@@ -140,6 +140,13 @@ typedef enum {
  */
 @property NSUInteger maxDepth;
 
+/**
+ @brief Skip null values when parsing.
+ 
+ Defaults to NO. Setting this to YES will result in null values being ignored when parsing. 
+ */
+@property BOOL skipNulls;
+
 /// Holds the error after SBJsonStreamParserError was returned
 @property (copy) NSString *error;
 

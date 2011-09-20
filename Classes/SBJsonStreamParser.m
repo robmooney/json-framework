@@ -41,6 +41,7 @@
 @synthesize error;
 @synthesize delegate;
 @synthesize maxDepth;
+@synthesize skipNulls;
 @synthesize state;
 @synthesize stateStack;
 

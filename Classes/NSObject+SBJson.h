@@ -62,6 +62,15 @@
  */
 - (id)JSONValue;
 
+/**
+ @brief Decodes the receiver's JSON text, ignoring null values
+ 
+ @return the NSDictionary or NSArray represented by the receiver (without nulls), or nil on error.
+ 
+ @see @ref json2objc
+ */
+- (id)JSONValueWithoutNulls;
+
 @end
 
 

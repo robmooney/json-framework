@@ -35,6 +35,7 @@
 @implementation SBJsonParser
 
 @synthesize maxDepth;
+@synthesize skipNulls;
 @synthesize error;
 
 - (id)init {
@@ -65,6 +66,7 @@
 	
 	SBJsonStreamParser *parser = [[[SBJsonStreamParser alloc] init] autorelease];
 	parser.maxDepth = self.maxDepth;
+    parser.skipNulls = self.skipNulls;
 	parser.delegate = adapter;
 	
 	switch ([parser parse:data]) {
